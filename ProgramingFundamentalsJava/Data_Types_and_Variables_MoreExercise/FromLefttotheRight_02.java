@@ -1,5 +1,6 @@
 package ProgramingFundamentalsJava.Data_Types_and_Variables_MoreExercise;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class FromLefttotheRight_02 {
@@ -7,24 +8,22 @@ public class FromLefttotheRight_02 {
         Scanner scanner = new Scanner(System.in);
         int times = Integer.parseInt(scanner.nextLine());
 
+
         for (int i = 0; i < times; i++) {
-
-            long firstNumber = scanner.nextLong();
-            long secondNumber = scanner.nextLong();
-            int sum = 0;
-
-            if ( firstNumber > secondNumber){
-                for (long j = firstNumber; j > 0 ; j/=10) {
-                    sum += j%10;
+            double sum = 0;
+            long [] numbersArray = Arrays.stream(scanner.nextLine().split(" ")).mapToLong(Long::parseLong).toArray();
+            if (numbersArray[0] > numbersArray[1]){
+                while( numbersArray[0] > 0){
+                    sum += numbersArray[0]%10;
+                    numbersArray[0]/=10;
                 }
-                System.out.println(sum);
             }else {
-                for (long j = secondNumber; j > 0 ; j/=10) {
-                    sum += j%10;
+                while (numbersArray[1] > 0) {
+                    sum += numbersArray[1] % 10;
+                    numbersArray[1] /= 10;
                 }
-                System.out.println(sum);
             }
-
+            System.out.printf("%.0f%n",sum);
         }
     }
 }
