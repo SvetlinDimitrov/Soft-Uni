@@ -13,194 +13,158 @@ public class IBAN_Generator {
 
 
         //the next eight characters depend on behalf of the bank
-        System.out.println("1 Айкарт АД");
-        System.out.println("2 Алианц Банк България АД");
-        System.out.println("3 БНП Париба Пърсънъл Файненс С.А. - клон БЪЛГАРИЯ");
-        System.out.println("4 БНП Париба С. А. - клон София");
-        System.out.println("5 Банка ДСК АД");
-        System.out.println("6 Бигбанк АС - клон България");
-        System.out.println("7 Българо-американска кредитна банка АД");
-        System.out.println("8 Българска банка за развитие АД");
-        System.out.println("9 Българска народна банка");
-        System.out.println("10 Варенголд Банк АГ, клон София");
-        System.out.println("11 Вива Пеймънт Сървисис ЕС ЕЙ - клон България АД");
-        System.out.println("12 Еконт Финансови услуги ЕООД");
-        System.out.println("13 ИНГ Банк Н.В. - кл. София");
-        System.out.println("14 Изи пеймънт Сървисиз ООД");
-        System.out.println("15 Изипей АД");
-        System.out.println("16 Инвестбанк АД");
-        System.out.println("17 Интернешънъл Асет Банк АД");
-        System.out.println("18 Майфин ЕАД");
-        System.out.println("19 Обединена българска банка АД");
-        System.out.println("20 Общинска банка АД");
-        System.out.println("21 Пейнетикс АДД");
-        System.out.println("22 ПроКредит Банк (България) АД");
-        System.out.println("23 Първа инвестиционна банка АД");
-        System.out.println("24 Райфайзенбанк (България) ЕАД");
-        System.out.println("25 Ситибанк Европа АД, клон България");
-        System.out.println("26 ТИ БИ АЙ Банк ЕАД");
-        System.out.println("27 Те-Дже Зираат Банкасъ - клон София");
-        System.out.println("28 Тексим Банк АД");
-        System.out.println("29 Тенен Пеймънтс АД");
-        System.out.println("30 Токуда Банк АД");
-        System.out.println("31 Транзакт Юръп ЕАД");
-        System.out.println("32 Транскарт Файненшъл Сървисис ЕАД");
-        System.out.println("33 Търговска банка Д АД");
-        System.out.println("34 УниКредит Булбанк АД");
-        System.out.println("35 Централна кооперативна банка АД");
-        System.out.println("36 Юробанк България АД");
+        String [] nameOfTheBankArray = new String [36];
+        String [] identifierPSPArray = new String [36];
+
+        System.out.println("0 Айкарт АД");
+        nameOfTheBankArray [0] = "Айкарт АД";
+        identifierPSPArray [0] = "INTF4001";
+
+        System.out.println("1 Алианц Банк България АД");
+        nameOfTheBankArray [1] = "Алианц Банк България АД";
+        identifierPSPArray [1] = "BUIN9561";
+
+        System.out.println("2 БНП Париба Пърсънъл Файненс С.А. - клон БЪЛГАРИЯ");
+        nameOfTheBankArray [2] = "БНП Париба Пърсънъл Файненс С.А. - клон БЪЛГАРИЯ";
+        identifierPSPArray [2] = "BPEF9290";
+
+        System.out.println("3 БНП Париба С. А. - клон София");
+        nameOfTheBankArray [3] = "БНП Париба С. А. - клон София";
+        identifierPSPArray [3] = "BNPA9440";
+
+        System.out.println("4 Банка ДСК АД");
+        nameOfTheBankArray [4] = "Банка ДСК АД";
+        identifierPSPArray [4] = "STSA9300";
+
+        System.out.println("5 Бигбанк АС - клон България");
+        nameOfTheBankArray [5] = "Банка ДСК АД";
+        identifierPSPArray [5] = "BIGK9879";
+
+        System.out.println("6 Българо-американска кредитна банка АД");
+        nameOfTheBankArray [6] = "Българо-американска кредитна банка АД";
+        identifierPSPArray [6] = "BGUS9160";
+
+        System.out.println("7 Българска банка за развитие АД");
+        nameOfTheBankArray [7] = "Българска банка за развитие АД";
+        identifierPSPArray [7] = "NASB9620";
+
+        System.out.println("8 Българска народна банка");
+        nameOfTheBankArray [8] = "Българска народна банка";
+        identifierPSPArray [8] = "BNBG9661";
+
+        System.out.println("9 Варенголд Банк АГ, клон София");
+        nameOfTheBankArray [9] = "Варенголд Банк АГ, клон София";
+        identifierPSPArray [9] = "VGAG9876";
+
+        System.out.println("10 Вива Пеймънт Сървисис ЕС ЕЙ - клон България АД");
+        nameOfTheBankArray [10] = "Вива Пеймънт Сървисис ЕС ЕЙ - клон България АД";
+        identifierPSPArray [10] = "VPAY4011";
+
+        System.out.println("11 Еконт Финансови услуги ЕООД");
+        nameOfTheBankArray [11] = "Еконт Финансови услуги ЕООД";
+        identifierPSPArray [11] = "ECFE4014";
+
+        System.out.println("12 ИНГ Банк Н.В. - кл. София");
+        nameOfTheBankArray [12] = "ИНГ Банк Н.В. - кл. София";
+        identifierPSPArray [12] = "INGB9145";
+
+        System.out.println("13 Изи пеймънт Сървисиз ООД");
+        nameOfTheBankArray [13] = "Изи пеймънт Сървисиз ООД";
+        identifierPSPArray [13] = "EAPS4008";
+
+        System.out.println("14 Изипей АД");
+        nameOfTheBankArray [14] = "Изипей АД";
+        identifierPSPArray [14] = "ESPY4004";
+
+        System.out.println("15 Инвестбанк АД");
+        nameOfTheBankArray [15] = "Инвестбанк АД";
+        identifierPSPArray [15] = "IORT9120";
+
+        System.out.println("16 Интернешънъл Асет Банк АД");
+        nameOfTheBankArray [16] = "Интернешънъл Асет Банк АД";
+        identifierPSPArray [16] = "IABG9470";
+
+        System.out.println("17 Майфин ЕАД");
+        nameOfTheBankArray [17] = "Майфин ЕАД";
+        identifierPSPArray [17] = "MYFN4012";
+
+        System.out.println("18 Обединена българска банка АД");
+        nameOfTheBankArray [18] = "Обединена българска банка АД";
+        identifierPSPArray [18] = "UBBS9200";
+
+        System.out.println("19 Общинска банка АД");
+        nameOfTheBankArray [19] = "Общинска банка АД";
+        identifierPSPArray [19] = "SOMB9130";
+
+        System.out.println("20 Пейнетикс АДД");
+        nameOfTheBankArray [20] = "Пейнетикс АДД";
+        identifierPSPArray [20] = "PATC4002";
+
+        System.out.println("21 ПроКредит Банк (България) АД");
+        nameOfTheBankArray [21] = "ПроКредит Банк (България) АД";
+        identifierPSPArray [21] = "PRCB9230";
+
+        System.out.println("22 Първа инвестиционна банка АД");
+        nameOfTheBankArray [22] = "Първа инвестиционна банка АД";
+        identifierPSPArray [22] = "FINV9150";
+
+        System.out.println("23 Райфайзенбанк (България) ЕАД");
+        nameOfTheBankArray [23] = "Райфайзенбанк (България) ЕАД";
+        identifierPSPArray [23] = "RZBB9155";
+
+        System.out.println("24 Ситибанк Европа АД, клон България");
+        nameOfTheBankArray [24] = "Ситибанк Европа АД, клон България";
+        identifierPSPArray [24] = "CITI9250";
+
+        System.out.println("25 ТИ БИ АЙ Банк ЕАД");
+        nameOfTheBankArray [25] = "ТИ БИ АЙ Банк ЕАД";
+        identifierPSPArray [25] = "TBIB9310";
+
+        System.out.println("26 Те-Дже Зираат Банкасъ - клон София");
+        nameOfTheBankArray [26] = "Те-Дже Зираат Банкасъ - клон София";
+        identifierPSPArray [26] = "TCZB9350";
+
+        System.out.println("27 Тексим Банк АД");
+        nameOfTheBankArray [27] = "Тексим Банк АД";
+        identifierPSPArray [27] = "TEXI9545";
+
+        System.out.println("28 Тенен Пеймънтс АД");
+        nameOfTheBankArray [28] = "Тенен Пеймънтс АД";
+        identifierPSPArray [28] = "TEPJ4013";
+
+        System.out.println("29 Токуда Банк АД");
+        nameOfTheBankArray [29] = "Токуда Банк АД";
+        identifierPSPArray [29] = "CREX9260";
+
+        System.out.println("30 Транзакт Юръп ЕАД");
+        nameOfTheBankArray [30] = "Транзакт Юръп ЕАД";
+        identifierPSPArray [30] = "TRUD4005";
+
+        System.out.println("31 Транскарт Файненшъл Сървисис ЕАД");
+        nameOfTheBankArray [31] = "Транзакт Юръп ЕАД";
+        identifierPSPArray [31] = "TRIV4003";
+
+        System.out.println("32 Търговска банка Д АД");
+        nameOfTheBankArray [32] = "Търговска банка Д АД";
+        identifierPSPArray [32] = "DEMI9240";
+
+
+        System.out.println("33 УниКредит Булбанк АД");
+        nameOfTheBankArray [33] = "УниКредит Булбанк АД";
+        identifierPSPArray [33] = "UNCR9660";
+
+        System.out.println("34 Централна кооперативна банка АД");
+        nameOfTheBankArray [34] = "Централна кооперативна банка АД";
+        identifierPSPArray [34] = "CECB9790";
+
+        System.out.println("35 Юробанк България АД");
+        nameOfTheBankArray [35] = "Юробанк България АД";
+        identifierPSPArray [35] = "BPBI9920";
 
         System.out.println("Choose the number of your bank name:");
         int numberBank = Integer.parseInt(scanner.nextLine());
-        String nameOfTheBank = "";
-        String identifierPSP = "";
-        switch (numberBank) {
-            case 1:
-                nameOfTheBank = "Айкарт АД";
-                identifierPSP = "INTF4001";
-                break;
-            case 2:
-                nameOfTheBank = "Алианц Банк България АД";
-                identifierPSP = "BUIN9561";
-                break;
-            case 3:
-                nameOfTheBank = "БНП Париба Пърсънъл Файненс С.А. - клон БЪЛГАРИЯ";
-                identifierPSP = "BPEF9290";
-                break;
-            case 4:
-                nameOfTheBank = "БНП Париба С. А. - клон София";
-                identifierPSP = "BNPA9440";
-                break;
-            case 5:
-                nameOfTheBank = "Банка ДСК АД";
-                identifierPSP = "STSA9300";
-                break;
-            case 6:
-                nameOfTheBank = "Бигбанк АС - клон България";
-                identifierPSP = "BIGK9879";
-                break;
-            case 7:
-                nameOfTheBank = "Българо-американска кредитна банка АД";
-                identifierPSP = "BGUS9160";
-                break;
-            case 8:
-                nameOfTheBank = "Българска банка за развитие АД";
-                identifierPSP = "NASB9620";
-                break;
-            case 9:
-                nameOfTheBank = "Българска народна банка";
-                identifierPSP = "BNBG9661";
-                break;
-            case 10:
-                nameOfTheBank = "Варенголд Банк АГ, клон София";
-                identifierPSP = "VGAG9876";
-                break;
-            case 11:
-                nameOfTheBank = "Вива Пеймънт Сървисис ЕС ЕЙ - клон България АД";
-                identifierPSP = "VPAY4011";
-                break;
-            case 12:
-                nameOfTheBank = "Еконт Финансови услуги ЕООД";
-                identifierPSP = "ECFE4014";
-                break;
-            case 13:
-                nameOfTheBank = "ИНГ Банк Н.В. - кл. София";
-                identifierPSP = "INGB9145";
-                break;
-            case 14:
-                nameOfTheBank = "Изи пеймънт Сървисиз ООД";
-                identifierPSP = "EAPS4008";
-                break;
-            case 15:
-                nameOfTheBank = "Изипей АД";
-                identifierPSP = "ESPY4004";
-                break;
-            case 16:
-                nameOfTheBank = "Инвестбанк АД";
-                identifierPSP = "IORT9120";
-                break;
-            case 17:
-                nameOfTheBank = "Интернешънъл Асет Банк АД";
-                identifierPSP = "IABG9470";
-                break;
-            case 18:
-                nameOfTheBank = "Майфин ЕАД";
-                identifierPSP = "MYFN4012";
-                break;
-            case 19:
-                nameOfTheBank = "Обединена българска банка АД";
-                identifierPSP = "UBBS9200";
-                break;
-            case 20:
-                nameOfTheBank = "Общинска банка АД";
-                identifierPSP = "SOMB9130";
-                break;
-            case 21:
-                nameOfTheBank = "Пейнетикс АДД";
-                identifierPSP = "PATC4002";
-                break;
-            case 22:
-                nameOfTheBank = "ПроКредит Банк (България) АД";
-                identifierPSP = "PRCB9230";
-                break;
-            case 23:
-                nameOfTheBank = "Първа инвестиционна банка АД";
-                identifierPSP = "FINV9150";
-                break;
-            case 24:
-                nameOfTheBank = "Райфайзенбанк (България) ЕАД";
-                identifierPSP = "RZBB9155";
-                break;
-            case 25:
-                nameOfTheBank = "Ситибанк Европа АД, клон България";
-                identifierPSP = "CITI9250";
-                break;
-            case 26:
-                nameOfTheBank = "ТИ БИ АЙ Банк ЕАД";
-                identifierPSP = "TBIB9310";
-                break;
-            case 27:
-                nameOfTheBank = "Те-Дже Зираат Банкасъ - клон София";
-                identifierPSP = "TCZB9350";
-                break;
-            case 28:
-                nameOfTheBank = "Тексим Банк АД";
-                identifierPSP = "TEXI9545";
-                break;
-            case 29:
-                nameOfTheBank = "Тенен Пеймънтс АД";
-                identifierPSP = "TEPJ4013";
-                break;
-            case 30:
-                nameOfTheBank = "Токуда Банк АД";
-                identifierPSP = "CREX9260";
-                break;
-            case 31:
-                nameOfTheBank = "Транзакт Юръп ЕАД";
-                identifierPSP = "TRUD4005";
-                break;
-            case 32:
-                nameOfTheBank = "Транскарт Файненшъл Сървисис ЕАД";
-                identifierPSP = "TRIV4003";
-                break;
-            case 33:
-                nameOfTheBank = "Търговска банка Д АД";
-                identifierPSP = "DEMI9240";
-                break;
-            case 34:
-                nameOfTheBank = "УниКредит Булбанк АД";
-                identifierPSP = "UNCR9660";
-                break;
-            case 35:
-                nameOfTheBank = "Централна кооперативна банка АД";
-                identifierPSP = "CECB9790";
-                break;
-            case 36:
-                nameOfTheBank = "Юробанк България АД";
-                identifierPSP = "BPBI9920";
-                break;
 
-        }
+
         //generator for the last 8 numbers
         Random random = new Random();
         String lastEightNumbers = "";
@@ -210,7 +174,7 @@ public class IBAN_Generator {
         }
 
         // control number
-        String IbanReverse = String.format("%s00%s%s00", identifierPSP, lastEightNumbers, country);
+        String IbanReverse = String.format("%s00%s%s00", identifierPSPArray[numberBank], lastEightNumbers, country);
         String numberOfIban = "";
 
         for (int i = IbanReverse.length() - 1; i >= 0; i--) {
@@ -314,14 +278,14 @@ public class IBAN_Generator {
 //F = 15 L = 21 R = 27 X = 33
 
 
-        System.out.printf("If your bank is \"%s\"%n", nameOfTheBank);
+        System.out.printf("If your bank is \"%s\"%n", nameOfTheBankArray[numberBank]);
         System.out.println("Your IBAN code is:");
-        String Iban = String.format("%s%s%s00%s", country, formattedControlNumber, identifierPSP, lastEightNumbers);
+        String Iban = String.format("%s%s%s00%s", country, formattedControlNumber, identifierPSPArray[numberBank], lastEightNumbers);
         System.out.println(Iban);
 
         //verification for valid Iban
 
-        String IbanReverseAgain = String.format("%s00%s%s%s", identifierPSP, lastEightNumbers, country, formattedControlNumber);
+        String IbanReverseAgain = String.format("%s00%s%s%s", identifierPSPArray[numberBank], lastEightNumbers, country, formattedControlNumber);
         numberOfIban = "";
 
         for (int i = IbanReverse.length() - 1; i >= 0; i--) {
