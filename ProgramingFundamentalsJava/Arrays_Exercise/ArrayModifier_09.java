@@ -31,8 +31,10 @@ public class ArrayModifier_09 {
 
             input = scanner.nextLine().split(" ");
         }
-        for(int print : numbers){
-            System.out.printf("%d, ",print);
+        for (int i = 0; i < numbers.length-1; i++) {
+            System.out.printf("%d, ",numbers[i]);
+
         }
+        System.out.printf("%d",numbers[numbers.length-1]);
     }
 }
