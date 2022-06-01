@@ -1,7 +1,6 @@
 package HckerRank_Practice;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
+import java.math.BigInteger;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -179,204 +178,32 @@ public class IBAN_Generator {
 
         for (int i = IbanReverse.length() - 1; i >= 0; i--) {
             char singleWord = IbanReverse.charAt(i);
-            switch (singleWord) {
-                case 'A':
-                    numberOfIban += 10;
-                    break;
-                case 'B':
-                    numberOfIban += 11;
-                    break;
-                case 'C':
-                    numberOfIban += 12;
-                    break;
-                case 'D':
-                    numberOfIban += 13;
-                    break;
-                case 'E':
-                    numberOfIban += 14;
-                    break;
-                case 'F':
-                    numberOfIban += 15;
-                    break;
-                case 'G':
-                    numberOfIban += 16;
-                    break;
-                case 'H':
-                    numberOfIban += 17;
-                    break;
-                case 'I':
-                    numberOfIban += 18;
-                    break;
-                case 'J':
-                    numberOfIban += 19;
-                    break;
-                case 'K':
-                    numberOfIban += 20;
-                    break;
-                case 'L':
-                    numberOfIban += 21;
-                    break;
-                case 'M':
-                    numberOfIban += 22;
-                    break;
-                case 'N':
-                    numberOfIban += 23;
-                    break;
-                case 'O':
-                    numberOfIban += 24;
-                    break;
-                case 'P':
-                    numberOfIban += 25;
-                    break;
-                case 'Q':
-                    numberOfIban += 26;
-                    break;
-                case 'R':
-                    numberOfIban += 27;
-                    break;
-                case 'S':
-                    numberOfIban += 28;
-                    break;
-                case 'T':
-                    numberOfIban += 29;
-                    break;
-                case 'U':
-                    numberOfIban += 30;
-                    break;
-                case 'V':
-                    numberOfIban += 31;
-                    break;
-                case 'W':
-                    numberOfIban += 32;
-                    break;
-                case 'X':
-                    numberOfIban += 33;
-                    break;
-                case 'Y':
-                    numberOfIban += 34;
-                    break;
-                case 'Z':
-                    numberOfIban += 35;
-                    break;
-                default:
-                    numberOfIban += singleWord;
-            }
+            numberOfIban += charToInt(singleWord);
         }
-        BigDecimal sumIban = new BigDecimal(numberOfIban);
-        sumIban = sumIban.remainder(BigDecimal.valueOf(97));
-        BigDecimal controlNumber = BigDecimal.valueOf(98).subtract(sumIban);
-
-        DecimalFormat df = new DecimalFormat("00");
-        String formattedControlNumber = df.format(controlNumber);
-
-
-//A = 10 G = 16 M = 22 S = 28 Y = 34
-//B = 11 H = 17 N = 23 T = 29 Z = 35
-//C = 12 I = 18 O = 24 U = 30
-//D = 13 J = 19 P = 25 V = 31
-//E = 14 K = 20 Q = 26 W = 32
-//F = 15 L = 21 R = 27 X = 33
+        BigInteger sumIban = new BigInteger(numberOfIban);
+        sumIban = sumIban.remainder(BigInteger.valueOf(97));
+        BigInteger controlNumber = BigInteger.valueOf(98).subtract(sumIban);
 
 
         System.out.printf("If your bank is \"%s\"%n", nameOfTheBankArray[numberBank]);
         System.out.println("Your IBAN code is:");
-        String Iban = String.format("%s%s%s00%s", country, formattedControlNumber, identifierPSPArray[numberBank], lastEightNumbers);
+        String Iban = String.format("%s%,d%s00%s", country, controlNumber, identifierPSPArray[numberBank], lastEightNumbers);
         System.out.println(Iban);
 
         //verification for valid Iban
 
-        String IbanReverseAgain = String.format("%s00%s%s%s", identifierPSPArray[numberBank], lastEightNumbers, country, formattedControlNumber);
+        String IbanReverseAgain = String.format("%s00%s%s%,d", identifierPSPArray[numberBank], lastEightNumbers, country, controlNumber);
         numberOfIban = "";
 
         for (int i = IbanReverse.length() - 1; i >= 0; i--) {
             char singleWord = IbanReverse.charAt(i);
-            switch (singleWord) {
-                case 'A':
-                    numberOfIban += 10;
-                    break;
-                case 'B':
-                    numberOfIban += 11;
-                    break;
-                case 'C':
-                    numberOfIban += 12;
-                    break;
-                case 'D':
-                    numberOfIban += 13;
-                    break;
-                case 'E':
-                    numberOfIban += 14;
-                    break;
-                case 'F':
-                    numberOfIban += 15;
-                    break;
-                case 'G':
-                    numberOfIban += 16;
-                    break;
-                case 'H':
-                    numberOfIban += 17;
-                    break;
-                case 'I':
-                    numberOfIban += 18;
-                    break;
-                case 'J':
-                    numberOfIban += 19;
-                    break;
-                case 'K':
-                    numberOfIban += 20;
-                    break;
-                case 'L':
-                    numberOfIban += 21;
-                    break;
-                case 'M':
-                    numberOfIban += 22;
-                    break;
-                case 'N':
-                    numberOfIban += 23;
-                    break;
-                case 'O':
-                    numberOfIban += 24;
-                    break;
-                case 'P':
-                    numberOfIban += 25;
-                    break;
-                case 'Q':
-                    numberOfIban += 26;
-                    break;
-                case 'R':
-                    numberOfIban += 27;
-                    break;
-                case 'S':
-                    numberOfIban += 28;
-                    break;
-                case 'T':
-                    numberOfIban += 29;
-                    break;
-                case 'U':
-                    numberOfIban += 30;
-                    break;
-                case 'V':
-                    numberOfIban += 31;
-                    break;
-                case 'W':
-                    numberOfIban += 32;
-                    break;
-                case 'X':
-                    numberOfIban += 33;
-                    break;
-                case 'Y':
-                    numberOfIban += 34;
-                    break;
-                case 'Z':
-                    numberOfIban += 35;
-                    break;
-                default:
-                    numberOfIban += singleWord;
-            }
+            numberOfIban += charToInt(singleWord);
         }
-        BigDecimal sumIbanVerify = new BigDecimal(numberOfIban);
-        sumIbanVerify = sumIbanVerify.remainder(BigDecimal.valueOf(97));
-        sumIbanVerify = BigDecimal.valueOf(98).subtract(sumIbanVerify);
-        BigDecimal one = new BigDecimal(1);
+        BigInteger sumIbanVerify = new BigInteger(numberOfIban);
+        sumIbanVerify = sumIbanVerify.remainder(BigInteger.valueOf(97));
+        sumIbanVerify = BigInteger.valueOf(98).subtract(sumIbanVerify);
+
+        BigInteger one = new BigInteger("1");
         int res = sumIbanVerify.compareTo(one);
 
         if ( res == 0){
@@ -385,5 +212,97 @@ public class IBAN_Generator {
             System.out.println("The Iban code is not valid");
         }
 
+    }
+    public static int charToInt (char letter ) {
+        int numberOfIban =0 ;
+        switch (letter) {
+            case 'A':
+                numberOfIban += 10;
+                break;
+            case 'B':
+                numberOfIban += 11;
+                break;
+            case 'C':
+                numberOfIban += 12;
+                break;
+            case 'D':
+                numberOfIban += 13;
+                break;
+            case 'E':
+                numberOfIban += 14;
+                break;
+            case 'F':
+                numberOfIban += 15;
+                break;
+            case 'G':
+                numberOfIban += 16;
+                break;
+            case 'H':
+                numberOfIban += 17;
+                break;
+            case 'I':
+                numberOfIban += 18;
+                break;
+            case 'J':
+                numberOfIban += 19;
+                break;
+            case 'K':
+                numberOfIban += 20;
+                break;
+            case 'L':
+                numberOfIban += 21;
+                break;
+            case 'M':
+                numberOfIban += 22;
+                break;
+            case 'N':
+                numberOfIban += 23;
+                break;
+            case 'O':
+                numberOfIban += 24;
+                break;
+            case 'P':
+                numberOfIban += 25;
+                break;
+            case 'Q':
+                numberOfIban += 26;
+                break;
+            case 'R':
+                numberOfIban += 27;
+                break;
+            case 'S':
+                numberOfIban += 28;
+                break;
+            case 'T':
+                numberOfIban += 29;
+                break;
+            case 'U':
+                numberOfIban += 30;
+                break;
+            case 'V':
+                numberOfIban += 31;
+                break;
+            case 'W':
+                numberOfIban += 32;
+                break;
+            case 'X':
+                numberOfIban += 33;
+                break;
+            case 'Y':
+                numberOfIban += 34;
+                break;
+            case 'Z':
+                numberOfIban += 35;
+                break;
+
+
+        }
+        return numberOfIban;
+        ////A = 10 G = 16 M = 22 S = 28 Y = 34
+        ////B = 11 H = 17 N = 23 T = 29 Z = 35
+        ////C = 12 I = 18 O = 24 U = 30
+        ////D = 13 J = 19 P = 25 V = 31
+        ////E = 14 K = 20 Q = 26 W = 32
+        ////F = 15 L = 21 R = 27 X = 33
     }
 }
