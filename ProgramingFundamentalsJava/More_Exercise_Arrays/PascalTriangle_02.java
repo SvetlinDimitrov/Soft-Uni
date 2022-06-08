@@ -1,5 +1,6 @@
 package ProgramingFundamentalsJava.More_Exercise_Arrays;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -27,7 +28,7 @@ public class PascalTriangle_02 {
 
                 }
             }
-            num = copyMasive;
+            num = Arrays.copyOf(copyMasive,copyMasive.length-1);
             System.out.println();
         }
     }
