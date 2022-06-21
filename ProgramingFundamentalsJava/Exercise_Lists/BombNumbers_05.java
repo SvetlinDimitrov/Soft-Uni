@@ -1,5 +1,7 @@
 package ProgramingFundamentalsJava.Exercise_Lists;
 
+import javax.imageio.metadata.IIOMetadataFormatImpl;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -8,25 +10,27 @@ import java.util.stream.Collectors;
 public class BombNumbers_05 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<Integer> numList = Arrays.stream(scanner.nextLine().split(" ")).map(Integer::parseInt).collect(Collectors.toList());
-        String numbers = scanner.nextLine();
+        List<String> numArray = Arrays.stream(scanner.nextLine().split(" ")).collect(Collectors.toList());
+        String commands = scanner.nextLine();
+        int bomb = Integer.parseInt(commands.split(" ")[0]);
+        int power = Integer.parseInt(commands.split(" ")[1]);
+        int indexBomb =numArray.indexOf(bomb);
 
-        int specialNum = Integer.parseInt(numbers.split(" ")[0]);
-        int specialDetonate = Integer.parseInt(numbers.split(" ")[1]);
-        int index = 0;
 
-        for (int i = 0; i <= numList.size()-1; i++) {
-            if(numList.get(i)==specialNum){
-                index =i;
-                break;
+
+        while(numArray.contains(commands.split(" ")[0])){
+
+            int left = Math.max(0 , bomb - power);
+            int right = Math.min (bomb + power , numArray.size()-1);
+
+            for (int i = right; i >= left; i--) {
+                numArray.remove(i);
             }
         }
-        if(index+specialDetonate > numList.size()-1){
-            numList.removeAll(numList.subList(3 , numList.size()-1));
-        }else{
-            numList.removeAll(numList.subList());
+        int sum =0;
+        for (String num : numArray){
+            sum += Integer.parseInt(num);
         }
-        System.out.println();
-
+        System.out.println(sum);
     }
 }
