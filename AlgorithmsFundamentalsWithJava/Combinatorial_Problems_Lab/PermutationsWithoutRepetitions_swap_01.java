@@ -10,28 +10,26 @@ public class PermutationsWithoutRepetitions_swap_01 {
         PermutationSwap(array, 0);
     }
 
-    private static void PermutationSwap(String[] array, int end) {
-        if (end == array.length) {
+    private static void PermutationSwap(String[] array, int index) {
+        if (index == array.length) {
             System.out.println(String.join(" ", array));
             return;
         }
-        PermutationSwap(array, end + 1);
-        for (int i = 0; i < array.length; i++) {
-
-            for (int j = end; j < 1; j++) {
-                String save = array[j];
-                array[j] = array[end];
-                array[end] = save;
-            }
-            PermutationSwap(array, end + 1);
-            for (int j = end; j < 1; j++) {
-                String save = array[j];
-                array[j] = array[end];
-                array[end] = save;
-            }
+        PermutationSwap(array, index + 1);
+        for (int i = index+1; i < array.length; i++) {
+            Swap(array , index , i);
+            PermutationSwap(array, index + 1);
+            Swap(array , index , i);
 
 
         }
     }
+
+    private static void Swap(String[] array, int start, int end) {
+        String save = array[start];
+        array[start] = array[end];
+        array[end] = save;
+    }
+
 }
 
