@@ -1,64 +1,67 @@
-package ProgramingFundamentalsJava.Exercise_Objects_and_Classes;
+package ProgramingFundamentalsJava.Lab_Objects_and_Classes;
+
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-
-class Student {
-    String firstName;
-    String secondName;
-    double grade;
-
-    Student(String firstName , String secondName , double grade){
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.grade = grade;
-    }
-
-    double getGrade (){
-        return this.grade;
-    }
-
-    void getInfo() {
-        System.out.printf("%s %s: %.2f%n", this.firstName , this.secondName , this.grade);
-    }
-
-}
+import java.util.stream.Collectors;
 
 public class Students_05 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int times = Integer.parseInt(scanner.nextLine());
-        List<Student> allStudents = new ArrayList<>();
-        for (int i = 0; i < times; i++) {
-            String input = scanner.nextLine();
-            String firstName = input.split(" ")[0];
-            String secondName = input.split(" ")[1];
-            double grade = Double.parseDouble(input.split(" ")[2]);
-            Student student = new Student(firstName,secondName,grade);
-            allStudents.add(student);
+    static class Student {
+        String firstName ;
+        String secondName;
+        String age;
+        String city;
+        Student(String firstName , String secondName , String age , String city){
+            this.firstName = firstName;
+            this.secondName = secondName;
+            this.age = age;
+            this.city = city;
         }
-        sort(allStudents);
-        for (Student stud : allStudents){
-            stud.getInfo();
+        String getFirstName(){
+           return this.firstName;
+        }
+        String getSecondName(){
+            return this.secondName;
+        }
+        String getAge(){
+            return this.age;
+        }
+        String getCity(){
+            return this.city;
+        }
+
+
+        void getInfo() {
+         System.out.printf("%s %s is %s years old%n" , this.firstName , this.secondName , this.age);
         }
     }
-    public static void sort(List<Student>students){
-        for (int i = 0; i <= students.size()-1; i++) {
-            int save = i;
-            for (int j = i+1; j <= students.size()-1 ; j++) {
-                if(students.get(i).getGrade() < students.get(j).getGrade()){
-                    save = j;
-                }
+    private static List<String> words;
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List<Student> listStudent= new ArrayList<>();
+        String input = scanner.nextLine();
+        while(!input.equals("end")){
+            words=Arrays.stream(input.split(" ")).collect(Collectors.toList());
+            Student student = new Student(words.get(0), words.get(1), words.get(2) , words.get(3) );
+            listStudent.add(student);
+
+
+            input = scanner.nextLine();
+        }
+        String town = scanner.nextLine();
+
+
+        for(Student students : listStudent){
+            if(students.getCity().equals(town)){
+                students.getInfo();
             }
-            swwap(students,i,save);
         }
     }
 
-    private static void swwap(List<Student> students, int i, int save) {
-        List<Student> saveList = new ArrayList<>();
-        saveList.add(students.get(i));
-        students.set(i ,students.get(save));
-        students.set(save ,saveList.get(0) );
+    private static String fullInfo(String firstName, String secondName, int age, String city) {
+        return String.format("%s %s %d %s ",firstName , secondName , age , city);
     }
+
 }
